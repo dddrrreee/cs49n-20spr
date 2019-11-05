@@ -5,7 +5,21 @@ A register is a block of memory (often 32 bits long). In the R/Pi, there are qui
 
 For unix bash terminal users, a .bashrc file is used to set environment variables and customize your terminal.
 
+SD Cards: For Mac Users, SD cards and other mounted volumes can be found in the /Volumes/ directory.
+
+Note: this lab includes a lot of steps and will probably involve installing different tools. Make sure to read the lab readme carefully to figure out what you have to do.
+
+### Lab skills
+
+For this lab, you should be comfortable with a unix terminal, git, and the basics of GPIO / wiring an LED. If possible, experience with binary logical operations and an understanding of computer memory will also be useful.
+
+
+
 ### Review Exercises
+
+#### Git
+
+Make sure git is installed on your computer. For more information, see the readme.
 
 #### Binary Translations!
 
