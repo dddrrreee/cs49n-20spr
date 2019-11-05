@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+cnt	gprof.c	/^static volatile unsigned cnt;$/;"	v	file:
+gprof_dump	gprof.c	/^static void gprof_dump(unsigned min_val) {$/;"	f	file:
+gprof_inc	gprof.c	/^static void gprof_inc(unsigned pc) {$/;"	f	file:
+gprof_init	gprof.c	/^static unsigned gprof_init(void) {$/;"	f	file:
+interrupt_vector	gprof.c	/^void interrupt_vector(unsigned pc) {$/;"	f
+kmalloc	gprof.c	/^void *kmalloc(unsigned nbytes) {$/;"	f
+kmalloc_init	gprof.c	/^void kmalloc_init(void) {$/;"	f
+notmain	gprof.c	/^void notmain() {$/;"	f
+period	gprof.c	/^static volatile unsigned period;$/;"	v	file:
+roundup	gprof.c	19;"	d	file:
