@@ -1,15 +1,17 @@
-You'll likely forget, but if at any point you need guides, the ones for
-cs107e are a good place to look:
+You'll likely forget this link, but if at any point you get confused about some basic
+concept, cs107e has a good set of guides on electricity, shell commands, pi stuff in 
+general:
    - [CS107E repo] (http://cs107e.github.io/guides/)
 
 You will need to do the following before the first lab:
 
-   - Install `git` on your laptop: we use `git` to push all assignments and code to
-     you.
+   - Install `git` on your laptop if you don't have it: we use `git`
+     to push all assignments and code to you.  MacOS seems to ship with it, but you
+     might need to install the `xcode command line tools` (Ian: fixme).
 
    - Use `git` to clone (check out) the class repository:
 
-        git clone git@github.com:dddrrreee/cs49n-20spr.git  
+        % git clone git@github.com:dddrrreee/cs49n-20spr.git  
 
      Pro tip: run this command in some sensible directory (e.g.,
      `~/class/`) and remember where you checked your repository out to!
@@ -21,22 +23,29 @@ You will need to do the following before the first lab:
      you do later.
 
    - Bring a micro-SD card reader or adaptor if its not built-in to your laptop.
-     SD cards are described: [SD](http://cs107e.github.io/guides) for a
+     The [CS107E guide on SD cards](http://cs107e.github.io/guides) is a great
+     description (with pictures!).
 
    - Figure out where your SD card is mounted (usually on MacOS it is in
      `/Volumes` and
      on linux in `/media/yourusername/`).   Figure out how to copy files
      to the SD card from the command line using `cp`, which is much
      much faster and better than using a gui (e.g., you can put it in a
-     makefile, or use your shell to redo a command).  For me, 
+    `Makefile`, or use your shell to redo a command).  For me, 
 
-        cp kernel.img /media/engler/0330-444/
-        sync
+        % cp kernel.img /media/engler/0330-444/
+        % sync
  
-     will copy the file in `kernel.img` in the current directory to the top level
-     of the SD card, the `sync` command forces the OS to flush out all dirty blocks
-     to the stable media (SD card, flash drive, etc).  At this point you can pull
-     the card out.
+     will copy the file in `kernel.img` in the current directory to the
+     top level directory of the mounted SD card, the `sync` command forces
+     the OS to flush out all dirty blocks to all stable media (SD card,
+     flash drive, etc).  At this point you can pull the card out.
+
+
+     Pro tip: ***do not emit either a `sync` or some file manager eject
+     action*** if you do, parts of the copied file(s) may in fact not
+     be on the SD card.  (Why: writes to stable storage are slow, so
+     the OS tends to defer them.)
 
    - For whatever shell (`tcsh`, `bash`, etc) you are using, figure out how to 
      edit your `PATH` variable so that you can install binary programs in a local
