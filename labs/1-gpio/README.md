@@ -31,7 +31,7 @@ Sign off: to get credit for the lab show the following:
    turns off the pin 20 LED when the touch sensor is touched.
 
 --------------------------------------------------------------------------
-#### Part 0.  Background on how to think about the Broadcom document.
+### Part 0.  Background on how to think about the Broadcom document.
 
 The r/pi, like most processors has a bunch of different devices it can
 control (e.g., the GPIO pins we've been using, the SD card reader, etc.)
@@ -146,7 +146,8 @@ What to do:
       works.
    4. Celebrate.
 
-###### A. Get the hardware working.
+---------------------------------
+##### A. Get the hardware working.
 
 We always try to test our hardware setup without software since doing so
 minimizes the places we need to debug if things do not work. A standard
@@ -177,7 +178,8 @@ LED.
 ****Put a photo here****.
 
 
-###### B. Write the code.
+---------------------------------
+##### B. Write the code.
 
 This should be fast:
   1. Implement `gpio_set_input` --- it should just be a few lines of code, which will
