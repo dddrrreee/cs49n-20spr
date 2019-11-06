@@ -33,8 +33,8 @@ You will need to do the following before the first lab:
      much faster and better than using a gui (e.g., you can put it in a
     `Makefile`, or use your shell to redo a command).  For me, 
 
-        % cp kernel.img /media/engler/0330-444/
-        % sync
+		% cp kernel.img /media/engler/0330-444/
+		% sync
  
      will copy the file in `kernel.img` in the current directory to the
      top level directory of the mounted SD card, the `sync` command forces
