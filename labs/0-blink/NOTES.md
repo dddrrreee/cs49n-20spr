@@ -34,8 +34,8 @@ You will need to do the following before the first lab:
      much faster and better than using a gui (e.g., you can put it in a
     `Makefile`, or use your shell to redo a command).  For me, 
 
-		% cp kernel.img /media/engler/0330-444/
-		% sync
+           % cp kernel.img /media/engler/0330-444/
+           % sync
  
      will copy the file in `kernel.img` in the current directory to the
      top level directory of the mounted SD card, the `sync` command forces
@@ -52,16 +52,16 @@ You will need to do the following before the first lab:
      edit your `PATH` variable so that you can install binary programs in a local
      `bin` directory and not have to constantly type out the path to them.  E.g.,
 
-        % cd ~
-        % mkdir bin
-        % cd bin
-        # pwd prints out the absolute path /home/engler/bin 
-        % pwd     
-
+           % cd ~
+           % mkdir bin
+           % cd bin
+           # pwd prints out the absolute path /home/engler/bin 
+           % pwd     
+           
      I would put `/home/engler/bin` in my `.tcshrc` file and then tell the shell
      to rescan the paths as follows:
 
-       % source ~/.tcshrc
+           % source ~/.tcshrc
 
 Nice-haves:
 
