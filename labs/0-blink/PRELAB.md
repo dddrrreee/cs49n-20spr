@@ -1,4 +1,4 @@
-# Lab 0 - Blink - Prep Worksheet
+## Lab 0 - Blink - Prep Worksheet
 ### Background Summary
 
 As mentioned in the README, this lab will focus on getting you comfortable with the physical R/Pi as well as the development process. You will write very little code for this lab, and instead work through a typical debugging process when working with a combination of hardware and software. At the end, you should be able to run the blink code we've given you on the R/Pi, and be comfortable moving any new code for future labs onto the Pi.
@@ -12,6 +12,8 @@ As mentioned in the README, this lab will focus on getting you comfortable with 
   3. You will practice the unix terminal/git skills required for this class.
 
 ### Review Exercises
+
+Most labs will have pre-lab review exercises to prepare you for the lab. If you read the readme and research what you don't understand, they shouldn't be hard to answer.
 
 #### Git
 
