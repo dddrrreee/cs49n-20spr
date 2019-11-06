@@ -33,17 +33,38 @@ from this demographic.  I would say that if you struggle building stuff
 and/or are not already interested in the topic, then it's probably better
 to take a different class.
 
-Before class:
-   0. Clone this repo: `git clone git@github.com:dddrrreee/cs49n-19spr.git`.
+How each lab will go:
+   1. Before each lab, you will want to go over the lab README and NOTES - this will give
+      you the background info to complete the lab and complete the PRELAB questions. There
+      are a lot of useful tricks you can learn as well, so what you get out of each lab
+      will be entirely decided by how much you put in to understand it.
+
+   2. When you come in for lab, we may go over any questions about the lab or prelab questions,
+      but other than that, it's mostly go time.
+
+   3. There will be a post-lab "check-off" for the results of each lab. If you don't finish in lab
+      time, you will have 7 days to finish the material. See more under "Grading".
+
+Things you can do before the first class:
+   1. Clone the repo: 
+
+          # If you have SSH Keys configured:
+          %git clone git@github.com:dddrrreee/cs49n-19spr.git`
+          # Otherwise:
+          %git clone https://github.com/dddrrreee/cs49n-20spr.git
+
    You may need to install `git` on your laptop.
-   1. Make sure you have some way to write a micro-SD card and understand
+
+   2. Make sure you have some way to write a micro-SD card and understand
    how to do so.  Note that newer Macs do not have SD card slots so you
    will need an adaptor.  Make sure when you plug in an SD card you know
    how to find where it is mounted. 
-   2. Make sure you have some way to plug in a USB adaptor.   Note,
+
+   3. Make sure you have some way to plug in a USB adaptor. Note,
    as above, newer Macs do not have USB ports so you may need a USB-C
    to USB adaptor.
-   3. Figure out how to add a directory to your `PATH`.  This will
+
+   4. Figure out how to add a directory to your `PATH`.  This will
    be valuable all quarter. The exact mechanics are shell-dependent.
    For `bash` look in `.bashrc`, for `tcsh` look in `.tcshrc` etc.
 
