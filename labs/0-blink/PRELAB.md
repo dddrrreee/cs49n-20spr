@@ -1,28 +1,43 @@
 # Lab 0 - Blink - Prep Worksheet
+### Background Summary
 
-### Quick 107 Review:
+A register is a block of memory (often 32 bits long). In the R/Pi, there are quite a few registers dedicated to hardware control. For this lab you will read pgs. ---- of the Broadcom document and look for registers associated with switching the output of the gpio pins on the R/Pi. 
 
-Binary Translations!
+For unix bash terminal users, a .bashrc file is used to set environment variables and customize your terminal.
 
-Q: What is 01101000 in decimal (base-10)?
+SD Cards: For Mac Users, SD cards and other mounted volumes can be found in the /Volumes/ directory.
 
-Q: What is 17 in binary?
+Note: this lab includes a lot of steps and will probably involve installing different tools. Make sure to read the lab readme carefully to figure out what you have to do.
 
-Bitshifting:
+### Lab skills
 
-Q: What is (1011 << 2) in decimal?
+For this lab, you should be comfortable with a unix terminal, git, and the basics of GPIO / wiring an LED. If possible, experience with binary logical operations and an understanding of computer memory will also be useful.
 
-Logical Operations:
 
-Q: What is 01101001 & 00111000? Binary is fine.
 
-Q: What is 1001 | 1100?
+### Review Exercises
 
-All Together Now!
+#### Git
 
-Q: What is (01111001 & ~(111 << 4)) | (1 << 5)?
+Make sure git is installed on your computer. For more information, see the readme.
 
-Unix Review
+#### Binary Translations!
 
-Q: Where can you go to edit your $PATH
+1) What is 01101000 in decimal (base-10)?
+
+2) What is the decimal number 17 is binary?
+
+#### Logical Operations: BITSHIFTING, AND, OR
+
+3) What is (1011 << 2) in decimal?
+
+4) What is 01101001 & 00111000? Binary is fine.
+
+5) What is 1001 | 1100?
+
+6) What is (01111001 & ~(111 << 4)) | (1 << 5)?
+
+#### Unix Review
+
+7) What file do you modify to edit your $PATH?
 
