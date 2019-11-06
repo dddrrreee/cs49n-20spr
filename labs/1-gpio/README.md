@@ -1,4 +1,4 @@
-### Lab: write your own code to control the r/pi; throw ours out.
+## Lab: write your own code to control the r/pi; throw ours out.
 
 The first lab was just setup.  Today we get to the fun part.  Today you'll
 use the Broadcom document (`../../docs/BCM2835-ARM-Peripherals.annot.PDF`)
@@ -91,7 +91,7 @@ is pretty simple, there is just a bunch of jargon, and with a few lines of
 code you can start to control some pretty neat stuff.
 
 --------------------------------------------------------------------------
-#### Part 1.  Make blink work.
+### Part 1.  Make blink work.
 
 You'll implement the following routines in `gpio.c`:
    1. `gpio_set_output(pin)` which will set `pin` to an output pin.  This should 
@@ -132,8 +132,7 @@ Hints:
 	  rewiring your pi to use pins in each group.
 
 --------------------------------------------------------------------------
-#### Part 2.  Make the touch sensor work.
-
+### Part 2.  Make the touch sensor work.
 
 Blinking the LED showed how to do output, you'll now write the code to set
 up a pin for input and use this code to read a capacitive touch sensor.
@@ -147,7 +146,7 @@ What to do:
       works.
    4. Celebrate.
 
-####### A. Get the hardware working.
+###### A. Get the hardware working.
 
 We always try to test our hardware setup without software since doing so
 minimizes the places we need to debug if things do not work. A standard
@@ -178,7 +177,7 @@ LED.
 ****Put a photo here****.
 
 
-####### B. Write the code.
+###### B. Write the code.
 
 This should be fast:
   1. Implement `gpio_set_input` --- it should just be a few lines of code, which will
