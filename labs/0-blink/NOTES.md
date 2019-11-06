@@ -1,21 +1,24 @@
 You'll likely forget, but if at any point you need guides, the ones for
 cs107e are a good place to look:
-
-    http://cs107e.github.io/guides/
+   - [CS107E repo] (http://cs107e.github.io/guides/)
 
 You will need to do the following before the first lab:
 
    - Install `git` on your laptop: we use `git` to push all assignments and code to
      you.
 
-   - Use `git` to clone (check out) the class repository.  
+   - Use `git` to clone (check out) the class repository:
 
-     Pro tip: remember where you checked your repository out to!   Also, know how to 
-     find it.
+        git clone git@github.com:dddrrreee/cs49n-20spr.git  
 
-     Pro tip: ***Do not download the class repository directly****!
+     Pro tip: run this command in some sensible directory (e.g.,
+     `~/class/`) and remember where you checked your repository out to!
+     Also, know how to find it.  We had a surprising (to me) number of
+     people lose work because they did not do this.
+
+     Pro tip: ***Do not download the class repository directly***!
      Direct download will be both tedious and overwrite any local changes
-     you do.
+     you do later.
 
    - Bring a micro-SD card reader or adaptor if its not built-in to your laptop.
      SD cards are described: [SD](http://cs107e.github.io/guides) for a
