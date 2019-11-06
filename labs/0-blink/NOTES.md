@@ -15,6 +15,9 @@ You will need to do the following before the first lab:
 
           % git clone git@github.com:dddrrreee/cs49n-20spr.git  
 
+     If using the https address to clone (This will be most of you, unless you have SSH keys configured:
+
+          % git clone https://github.com/dddrrreee/cs49n-20spr.git
 
      Pro tip: run this command in some sensible directory (e.g.,
      `~/class/`) and remember where you checked your repository out to!
