@@ -3,24 +3,37 @@
 Today you'll write your own code to control the r/pi pins.  You should have 
 read through 8 pages of the broadcom document.
 
-The first lab was just setup.  Today we get to the fun part.  You'll read
-the Broadcom document to see how to turn the GPIO pins on yourself and
-then filling in the code in `part3/blink.c`.
+The first lab was just setup.  Today we get to the fun part.  Today you'll
+use the 
+Broadcom document (`../../docs/BCM2835-ARM-Peripherals.annot.PDF`) to 
+figure out how to write the code to turn the GPIO pins on/off yourself 
+as well as reading them, we'll use this code in a simple way to blink an 
+LED and to read the data from a capacitive touch sensor.
+
+Important PRELAB work:
+
+   - read through pages 90---96 of the broadcom document 
+    (`../../docs/BCM2835-ARM-Peripherals.annot.pdf`) to see what memory addresses to 
+    read and write to get the GPIO pins to do stuff.
+
+   - Note 1: where the broadcom document uses addresses `0x7420xxxx`, you'll use `0x2020xxxx`.
+
+   - Note 2: the broadcom document talks about "registers" --- you can just think of these
+     as magic memory locations that you read or write to get the RPI to do things.
+
+   - Look through the code in `part1-blink` and `part2-touch` since
+     you'll be filling this in.   
+
+Sign off: to get credit for the lab show the following:
+
+   1. That [part1-blink] (https://github.com/dddrrreee/cs49n-20spr/tree/master/labs/1-gpio/part1-blink) blinks two LEDs on pin 20 and 21 in opposite orders (i.e., if 20 is on, 21 should be off).  (This will point out a subtle mistake people make reading the docs).
 
 
-The final sign off for the lab, show the TA/me your code and run four
-  programs: 
-  1. one that blinks pin 20; 
-  2. pin 16 (right above 20);
-  3. pin 5;
-  4. Finally, blink 20 and 21 (right below 20) in opposite orders (i.e.,
-  if 20 is on, 21 should be off).  (This will point out a subtle mistake
-  people make reading the docs).
+   2. That [part2-button](https://github.com/dddrrreee/cs49n-20spr/tree/master/labs/1-gpio/part2-button)
+   turns off the pin 20 LED when the touch sensor is touched.
 
 --------------------------------------------------------------------------
-#### 1. write your own blink!
-
-###### 1.a write your own blink!
+#### Part 1.  Make blink work.
 
 Change the code to first work with GPIO20.
 
