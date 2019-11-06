@@ -59,7 +59,7 @@ You will need to do the following before the first lab:
            % cd bin
            # pwd prints out the absolute path /home/engler/bin 
            % pwd     
-           
+      
      I would put `/home/engler/bin` in my `.tcshrc` file and then tell the shell
      to rescan the paths as follows:
 
@@ -70,7 +70,12 @@ You will need to do the following before the first lab:
 
            % vim .bashrc
 
-     Add your path, and source it the same way as the `.tcshrc`.
+     When you add your path, make sure you include you default path or you may mess up your terminal.
+     This looks like:
+
+           % export PATH="$PATH:your/path/here:your/other/path/here"
+
+     and source it the same way as the `.tcshrc`.
 
 Nice-haves, you don't need these for the first lab, but they will make
 your Stanford journey much easier:
