@@ -11,7 +11,8 @@ You will need to do the following before the first lab:
 
    - Use `git` to clone (check out) the class repository:
 
-        % git clone git@github.com:dddrrreee/cs49n-20spr.git  
+          % git clone git@github.com:dddrrreee/cs49n-20spr.git  
+
 
      Pro tip: run this command in some sensible directory (e.g.,
      `~/class/`) and remember where you checked your repository out to!
