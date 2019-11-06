@@ -7,7 +7,9 @@ You will need to do the following before the first lab:
 
    - Install `git` on your laptop if you don't have it: we use `git`
      to push all assignments and code to you.  MacOS seems to ship with it, but you
-     might need to install the `xcode command line tools` (Ian: fixme).
+     might need to install the xcode command line tools with:
+
+          % xcode-select --install
 
    - Use `git` to clone (check out) the class repository:
 
@@ -62,6 +64,13 @@ You will need to do the following before the first lab:
      to rescan the paths as follows:
 
            % source ~/.tcshrc
+     
+     For MacOS users, put the path to your `bin` directory in a .bashrc file (which you
+     can put in your home directory or a specific class folder). Just run:
+
+           % vim .bashrc
+
+     Add your path, and source it the same way as the `.tcshrc`.
 
 Nice-haves, you don't need these for the first lab, but they will make
 your Stanford journey much easier:
