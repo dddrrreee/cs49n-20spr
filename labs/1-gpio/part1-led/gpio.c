@@ -38,6 +38,8 @@ volatile unsigned *gpio_fsel0 = (void*)(GPIO_BASE + 0x00);
 volatile unsigned *gpio_set0  = (void*)(GPIO_BASE + 0x1C);
 volatile unsigned *gpio_clr0  = (void*)(GPIO_BASE + 0x28);
 
+// Part 1 implement gpio_set_on, gpio_set_off, gpio_set_output
+
 // set <pin> to be an output pin.  note: fsel0, fsel1, fsel2 are contiguous in memory,
 // so you can use array calculations!
 void gpio_set_output(unsigned pin) {
@@ -57,16 +59,27 @@ void gpio_set_off(unsigned pin) {
     // use gpio_clr0
 }
 
-// For later labs, write these routines as well.
+// Part 2: implement gpio_set_input and gpio_read
 
 // set <pin> to input.
 void gpio_set_input(unsigned pin) {
-    // implement this
-    // use gpio_fsel0  
+    // implement.
+}
+
+// return the value of <pin>
+int gpio_read(unsigned pin) {
+    unsigned v = 0;
+
+    // implement.
+
+    return v;
 }
 
 // set <pin> to <v> (v \in {0,1})
 void gpio_write(unsigned pin, unsigned v) {
-    // implement this
+    if(v)
+       gpio_set_on(pin);
+    else
+       gpio_set_off(pin);
 }
 

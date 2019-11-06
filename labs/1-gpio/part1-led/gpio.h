@@ -16,4 +16,7 @@ void gpio_set_off(unsigned pin);
 // set <pin> to <v> (v \in {0,1})
 void gpio_write(unsigned pin, unsigned v);
 
+// return the value of <pin>.
+int gpio_read(unsigned pin);
+
 #endif
