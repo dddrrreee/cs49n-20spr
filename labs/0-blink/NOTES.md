@@ -1,7 +1,6 @@
 You'll likely forget, but if at any point you need guides, the ones for
 cs107e are a good place to look:
-
-    http://cs107e.github.io/guides/
+   - [CS107E repo] (http://cs107e.github.io/guides/)
 
 You will need to do the following before the first lab:
 
