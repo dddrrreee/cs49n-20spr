@@ -47,6 +47,7 @@ The review exercises for Lab 1 center around reading/writing binary values into 
 7) If we have an `*unsigned x` (4 bytes long) such that `x = (void*)0x4`, what memory address does `x+2` point to?
 
 Note: this is effectively the following code:
+
           unsigned *x = (void*)0x4;
           x+2 # equals what?
 
