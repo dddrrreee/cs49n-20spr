@@ -73,8 +73,7 @@ your Stanford journey much easier:
    - Figure out how to use tags.  Both `emacs` or `vim` support "tags",
      which use keyboard shortcuts to essentially treat identifiers as urls
      and navigate to the definitions of structures, functions, variables.
-     This makes understanding code ***much much*** faster and easier.   
-     [A description for `vim`](https://vim.fandom.com/wiki/Browsing_programs_with_tags).
+     This makes understanding code ***much much*** faster and easier.   [A description for `vim`](https://vim.fandom.com/wiki/Browsing_programs_with_tags).
 
    - Longer term: eliminate as much mouse usage as you can; ***especially
      eliminate screen switching***.  Ideally you'll have your code in one
