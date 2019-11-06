@@ -49,9 +49,9 @@ Things you can do before the first class:
    1. Clone the repo: 
 
           # If you have SSH Keys configured:
-          %git clone git@github.com:dddrrreee/cs49n-19spr.git`
+          git clone git@github.com:dddrrreee/cs49n-19spr.git`
           # Otherwise:
-          %git clone https://github.com/dddrrreee/cs49n-20spr.git
+          git clone https://github.com/dddrrreee/cs49n-20spr.git
 
    You may need to install `git` on your laptop.
 
