@@ -63,7 +63,8 @@ You will need to do the following before the first lab:
 
            % source ~/.tcshrc
 
-Nice-haves:
+Nice-haves, you don't need these for the first lab, but they will make
+your Stanford journey much easier:
 
    - Figure out how to "tab complete" in your shell.  This gives you
      a fast(er) way to list out files and run things.  We'll show this,
@@ -72,25 +73,36 @@ Nice-haves:
    - Figure out how to use tags.  Both `emacs` or `vim` support "tags",
      which use keyboard shortcuts to essentially treat identifiers as urls
      and navigate to the definitions of structures, functions, variables.
-     This makes understanding code ***much much*** faster and easier.
+     This makes understanding code ***much much*** faster and easier.   
+     [A description for `vim`](https://vim.fandom.com/wiki/Browsing_programs_with_tags).
 
-   - Longer term: eliminate as much mouse usage as you can; especially
-     eliminate screen switching.  Ideally you'll have your code in one
-     window, the compilation in another on the same screen and switch back
-     and forth between these without lifting your hands off the keyboard.
+   - Longer term: eliminate as much mouse usage as you can; ***especially
+     eliminate screen switching***.  Ideally you'll have your code in one
+     window, the compilation in another window on the same screen and
+     switch back and forth between these windows without lifting your
+     hands off the keyboard.  You should definitely not be switching
+     screens for such tasks.
 
      The single biggest productivity slowdown I see in stanford undergrads
      (grads too) is the slow, laborious use of taking their hand off
      a keyboard, moving a mouse, clicking, switchin screens, clicking
      on something else, switching back, etc.   You don't realize how
-     much this will cripple you until you watch someone who writes
-     code well and compare how slow you move in comparison.  Plus,
-     this switching screens means you lose context, you move slowly,
-     you distrupt *flow*, which is basically the only real way you can
-     get significant, effective work done..  Any time you move the mouse,
-     you're not doing work.  Do what you can to stop this.
+     much this will cripple you until you watch someone who writes code
+     well and compare their fluent flow to your plodding agrarian
+     lifestyle.  Such switching screens means you lose context
+     (which makes fixing even trivial compilation errors painful),
+     you move slowly, and in many different ways you will distrupt your
+     programming flow state, which is basically the only real way you
+     can get significant, effective work done.  Any time you move the
+     mouse, you're not doing work.  Do what you can to stop this.
 
    - Install `gdb` if you can --- it makes things easier in other classes
      (e.g., you can do a backtrace after a crash to figure out where the
      code was) and for this class let you answer simple code questions
-     quickly.
+     quickly.  For example, what is the decimal value of `01010101011`?
+
+          % gdb
+          (gdb) p 0b01010101011
+          $1 = 683
+
+     Easy.
