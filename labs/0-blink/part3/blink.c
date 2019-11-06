@@ -20,49 +20,14 @@
  *     one should be on, while the other is off).   Note, if they behave weirdly, look
  *     carefully at the wording for GPIO set.
  */
+#include "gpio.h"
 
-// these are in start.s
-void put32(volatile void *addr, unsigned v);
-unsigned get32(const volatile void *addr);
-
-// see broadcomm documents for magic addresses.
-#define GPIO_BASE 0x20200000
-volatile unsigned *gpio_fsel0 = (volatile unsigned *)(GPIO_BASE + 0x00);
-volatile unsigned *gpio_set0  = (volatile unsigned *)(GPIO_BASE + 0x1C);
-volatile unsigned *gpio_clr0  = (volatile unsigned *)(GPIO_BASE + 0x28);
-
-// set <pin> to output.  note: fsel0, fsel1, fsel2 are contiguous in memory,
-// so you can use array calculations!
-void gpio_set_output(unsigned pin) {
-    // use gpio_fsel0
-}
-
-
-// set <pin> on.
-void gpio_set_on(unsigned pin) {
-    // use gpio_set0
-}
-
-// set <pin> off
-void gpio_set_off(unsigned pin) {
-    // use gpio_clr0
-}
-
-// For later labs, write these routines as well.
-
-// set <pin> to input.
-void gpio_set_input(unsigned pin) {
-    // use gpio_fsel0  
-}
-// set <pin> to <v> (v \in {0,1})
-void gpio_write(unsigned pin, unsigned v) {
-    // 
-}
+void nop(void);
 
 // countdown 'ticks' cycles; the asm probably isn't necessary.
 void delay(unsigned ticks) {
     while(ticks-- > 0)
-        asm("add r1, r1, #0");
+        nop();
 }
 
 // when you run should blink 10 times. will have to restart the pi by pulling the

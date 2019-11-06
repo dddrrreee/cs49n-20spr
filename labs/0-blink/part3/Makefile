@@ -3,7 +3,7 @@
 NAME=blink
 
 # start.o must be first!
-OBJS = start.o $(NAME).o
+OBJS = start.o $(NAME).o gpio.o
 
 ARM = arm-none-eabi
 CC = $(ARM)-gcc
