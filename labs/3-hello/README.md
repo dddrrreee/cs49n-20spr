@@ -1,5 +1,8 @@
 ## Hello r/pi.
 
+This lab will re-enforce your ability to write low-level code and to
+cross check it.
+
 As you've probably discovered, debugging without even `printf` is
 a hassle.  Before we do a bunch of devices, today's lab first gets
 `printf` working so that it's a bit easier.
@@ -163,6 +166,7 @@ versus minutes to find it.
 
 ----------------------------------------------------------------------
 #### Step 5: make sure `blink` still works (10 minutes) 
+
 
 This should be fast.
    1. Make a `blink` directory in today's lab.
