@@ -57,12 +57,7 @@ are quick (< 60 minutes), some are longer.
   7. [lightstrip](6-ws2812b/): do the neopixel as part of basic devices?
      Have them make an equivalizer?
 
-  8. [i2c](5-ir/): we use a simple IR device to reverse engineer a remote
-     control protocol.    We then transmit this using an IR emitting LED
-     and verify that it is accurate.  As usual, you cross check your code
-     against everyone elses.
- 
-  9. [esp8622](8-esp): we show how to use an ESP8622 to communicate
+  8. [esp8622](8-esp): we show how to use an ESP8622 to communicate
      between r/pi's.
 
 #### Synthesis [***NOT DONE***]
