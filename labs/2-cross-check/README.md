@@ -69,7 +69,9 @@ What do you need to do so?
 
      Since your `gpio.c` is simple, all you'll have to do is provide fake
      implementations of `get32` and `put32` so that we can override what
-     happens when your code writes to GPIO memory.
+     happens when your code writes to GPIO memory.   
+
+
 
 First steps:
   1. From the pre-lab: Look in `fake-put-get.c` and read the comments.  You will implement
@@ -81,14 +83,22 @@ First steps:
      wrong place.
 
 You'll now build a fake memory so that you can implement `put32` and
-`get32` (again, look in `fake-put-get.c` file).
+`get32` (again, look in `fake-put-get.c` file).  
+
+Mechanically: at each `put32(a,v)` call you want to record that `a`
+maps to value `v` so that all subsequent `get32(a)` calls will return
+`v`.  Since "the unavoidable price of correctness is simplicity"  (to
+mangle a C.A.R. Hoare quote), just record this mapping in a fixed-size
+array, and do a linear scan looking for it.  Do not use a hash table,
+a tree, or any other fancy-pants data structure that will only be fast
+at causing bugs.  We do not need speed here.
 
 For `put32(addr,v)`: 
   1. Create an entry for `addr` in your fake memory if `addr` doesn't exist.
   2. Write `v` to `addrs` entry.
   3. Call `print_write(addr,v)`.
 
-On `get32(addr)`:
+For `get32(addr)`:
 
   1. If `addr` does not exist, insert `(addr, random())` (but do not print anything).
   2. Get the value `v` associated with `addr`.
@@ -128,3 +138,62 @@ For this section:
  2. You can test each function individually by running `test-gpio 0`,
        `test-gpio 1`, etc.  (Look in the `test-gpio.c` file.)
  3. Again compare the results to your partner and post to the newsgroup.
+
+-------------------------------------------------------------------------
+#### Addendum: the power of fake execution + equivalance.
+
+It doesn't look like much but you've implemented a fancy approach to
+correctness that is --- hard to believe --- much beyond what almost
+anyone does.     There are two pieces to what you've done:
+
+   1. Taking low-level code made to manipulate hardware directly and
+      running it without modification in a fake environment.   This
+      approach to lying (more politely called "virtualization") is
+      powerful and useful in many domains.  In an extreme case you have
+      virtual machines, such as VMware, which can take entire operating
+      systems designed to run in god-mode on raw hardware (such as your
+      laptop) and instead run them as user-processes that deal with fake
+      hardware without them realizing it.
+
+   2. Showing code equivalance not by comparing the code itself (which
+      is hard when code differs even trivially, much less dramatically)
+      but instead by checking that it does equivalant reads and writes.
+      Checking memory-access equivalance gives us a simple, powerful
+      method to mechanically check code correctness.    In our case, it
+      lets us show that you are equivalant to everyone else by comparing
+      a single 64-bit number.  Even better: if even one impementation
+      is correct, we have trivially shown they all are --- at least on
+      the runs we have done --- no matter how weirdly you wrote the code.
+
+Showing exact equivalance of a specific run is easy.   (A `strcmp` of the
+output is sufficient.)   It does have a couple of challenges.
+
+   1. It only shows equvalance on the inputs we have tested.  It cannot
+      show that there is not some other input that causes a non-equivalant
+      execution.  We *can* signficantly extend this by checking the code
+      symbolically (essentially running it on constraints expressing
+      all possible values on a path vs just running it on a single set
+      of concrete values), but this is beyond the scope of the course.
+      My student David Ramos has two great papers on this appraoch.
+
+   2. It will semantically equivalant runs that have superficial
+      differences.  For example, consider code where one implementation
+      first sets sets GPIO pin 19 to an output pin, and then pin 20 while
+      another does the reverse.  Intuitively these are the same, since
+      it does not matter which order you set these pins, but since these
+      reads and writes will be in different orders we will reject these.
+      The problem with resolving this false rejection is that we need
+      to know more semantics of what we are checking.   While encoding
+      such semantics in this exact case isn't hard, doing so in general
+      is not always easy.  And it always requires some more code (and,
+      of course, this code can be wrong).  There is an art to flexibly
+      specifying such differences which, unfortunately, we lack the time
+      to get into.  One easy (but a bit imperfect) hack in our domain
+      is to consider reads and writes to different r/pi devices to be
+      indenepent (this is not always true) or multiple reads or writes
+      of the same location to be equivalant to a single read or write
+      (again, not always true).
+
+      In the interest of simple and fast we will insist on exact
+      equivalance, but you are more than welcome to do something more
+      fancy and we'll try to factor that into your grade.
