@@ -1,5 +1,5 @@
 /*
- * simple test to turn on the first pixel in the light string to green.
+ * simple test to turn on the first pixel in the light string to blue.
  */
 #include "rpi.h"
 #include "WS2812B.h"

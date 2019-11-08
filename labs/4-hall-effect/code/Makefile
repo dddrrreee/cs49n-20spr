@@ -1,7 +1,7 @@
 # change this name to whatever your program is called
 NAME=hall
 # add any additional .o's here
-OBJS = $(NAME).o
+OBJS = $(NAME).o driver.o
 
 # check that your path is defined.
 ifndef CS49N_LIBPI_PATH

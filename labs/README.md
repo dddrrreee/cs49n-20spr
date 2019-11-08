@@ -12,10 +12,15 @@ devices and using modern techniques to check them.  Some of these labs
 are quick (< 60 minutes), some are longer.
 
   0. [blink](0-blink/): get everyone up to speed and all necessary
-     software installed.  You do the usual `blink` program by writing your 
-     own GPIO implementations based on the Broadcom document GPIO description.
+     software installed.  By the end you'll be able to compile the code
+     for the pi and blink a light.
 
-  1. [cross-check](1-cross-check/): you will use read-write logging
+  1. [gpio](1-gpio/): You'll write your own
+     GPIO implementations based on the Broadcom document GPIO description
+     and use it to implement the LED in the previous lab and a touch
+     sensor.
+
+  2. [cross-check](2-cross-check/): you will use read-write logging
      to verify that your GPIO code is equivalent to everyone else's.
      If one person got the code right, everyone will have it right.
 
