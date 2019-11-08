@@ -85,8 +85,6 @@ void neopix_flush_writes(neo_t h) {
     memset(h->pixels, 0, sizeof h->pixels[0] * n);
 }
 
-
-
 /*
  * t1h: expected 630 cycles, got 631 cycles
  * t0h: expected 245 cycles, got 249 cycles
