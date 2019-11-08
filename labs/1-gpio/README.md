@@ -1,30 +1,36 @@
 ## Lab: write your own code to control the r/pi; throw ours out.
 
-The first lab was just setup.  Today we get to the fun part.  Today you'll
+
+The first lab was just setup.  Today we get to the fun part: you'll 
 use the Broadcom document (`../../docs/BCM2835-ARM-Peripherals.annot.PDF`)
 to figure out how to write the code to turn the GPIO pins on/off yourself
-as well as reading them, we'll use this code in a simple way to blink
-an LED and to read the data from a capacitive touch sensor.
+as well as reading them to get values produced by a digital device.
+You'll use this code to blink an LED and to detect when a capacitive touch sensor is
+touched.
 
-Important PRELAB work:
+*Important PRELAB work*:
+    - Always obey the following: ***IF YOUR PI GETS HOT TO THE TOUCH UNPLUG IT***  You
+      likely have a short somewhere and in the worst-case can fry your laptop.
 
-   - Read throuh `Part 0` below to get a big-picture background.
+   - Read throuh `Part 0` below to get a big-picture background of how the r/pi (and many
+     computer systems) control devices.
 
    - Read through pages 90---96 of the broadcom document 
-    (`../../docs/BCM2835-ARM-Peripherals.annot.pdf`) to see what memory addresses to 
-    read and write to get the GPIO pins to do stuff.
+     (`../../docs/BCM2835-ARM-Peripherals.annot.pdf`) to see what memory addresses to 
+     read and write to get the GPIO pins to do stuff.
 
-   - Note 1: where the broadcom document uses addresses `0x7420xxxx`, you'll use `0x2020xxxx`.
+     Note 1: where the broadcom document uses addresses `0x7420xxxx`, you'll use `0x2020xxxx`.
 
-   - Note 2: the broadcom document talks about "registers" --- you can just think of these
-     as magic memory locations that you read or write to get the RPI to do things.
+     Note 2: the Broadcom document talks about "registers" --- you can just think of these
+     as magic memory locations that you read or write to get the r/pi to do things.
 
-   - Look through the code in `part1-blink` and `part2-touch` since
-     you'll be filling this in.   
+   - Look through the `gpio.h` and `gpio.c` files in `part1-blink` 
+     you'll be filling this in as well as the two simple programs `touch.c` and `blink.c`
+     which will call into your code.  (You won't modify these two latter files.)
 
 Sign off: to get credit for the lab show the following:
 
-   1. That [part1-blink](https://github.com/dddrrreee/cs49n-20spr/tree/master/labs/1-gpio/part1-blink) blinks two LEDs on pin 20 and 21 in opposite orders (i.e., if 20 is on, 21 should be off).  (This will point out a subtle mistake people make reading the docs).
+   1. That [part1-blink](https://github.com/dddrrreee/cs49n-20spr/tree/master/labs/1-gpio/part1-blink) blinks two LEDs on pin 20 and 21 in opposite orders (i.e., if 20 is on, 21 should be off and vice versa).  (This will point out a subtle mistake people make reading the docs).
 
 
    2. That [part2-touch](https://github.com/dddrrreee/cs49n-20spr/tree/master/labs/1-gpio/part2-touch)
@@ -38,45 +44,67 @@ control (e.g., the GPIO pins we've been using, the SD card reader, etc.)
 Obviously, to use these devices, the pi must have a way to communicate
 with them.
 
-An old-school, obsolete approach to device communication is to have
+An old-school, obsolete approach for device communication is to have
 special assembly instructions that the pi CPU could issue.  This sucks,
-since each new device would need its own set of instructions.
+since each new device needs its own set of instructions.
 
-Instead, the generally agreed upon hack that modern systems use is to
-give each device its own chunk of the physical address space and then
-read or write these locations with magic device-specific values to these
-locations to communicate with it.
+Instead, modern systems use the following hack: they 
+give each device its own chunk of the physical address space and code can 
+read or write these locations with magic, device-specific values 
+to communicate with the device.   
 
-For example, from the Broadcom document, we know that 0x20200000 has
-the address of the ... register.  To write a 1 for pin 20 we could do
-the equivalant of the following sleazy C code:
+For example, to turn on GPIO pin 20, we look in the Broadcom document:
+   1. On page 95 states that a write to the ith bit of `GPSET0` will set
+      the ith GPIO pin on.
 
-        *(volatile unsigned *)0x2020202 = (1 << 20);
+   2. Using the table on page 90 we see `GPSET0` is located at address 
+      `0x7E20001C` (note: a constant prefixed with `0x` this given in hex notation.)
 
-I.e., cast the locations .... to a `volatile unsigned` pointer and write  (store) the
-constant produced by shifting a 1 to the 20th position there:
+   3. Finally, just to confuse things, we know after staring at the diagram on 
+      page 5 that the broadcom "CPU bus addresses" at 
+      `0x7Exx xxxx` are mapped to physical addresses at `0x20xx xxxx` on the pi.  
+      Thus the actual address we write is `0x2020001C`.
+      (Note: such ad hoc, "you
+      just have to know" factoids are wildly common when dealing with
+      hardware, which is why this is a lab class.  Otherwise you can get
+      stuck for weeks on some uninteresting fact you simply do not know.
+      Hopefully, after this class you operate robustly in the face of such nonsense.)
+
+The result of all this investigation is the following sleazy C code:
+
+        *(volatile unsigned *)0x2020001C = (1 << 20);
+
+I.e., cast the locations `0x2020001C` to a `volatile unsigned` pointer and write  (store) the
+constant produced by shifting a 1 to the 20th (`1 << 20`) position there:
    - `volatile` tells the compiler this pointer is magic and don't optimize its use away.
-   - `unsigned` on the pi is 32 bits.
+   - `unsigned` on the pi is 32-bits.   
 
-Morally the above is fine, despite what people might tell you, however it is very easy
-to forget a `volatile` type qualifier and have the compile silently remove reads or writes.
-In this class we will do the slighly more priggish to perform the same action:
+Morally the above is fine, despite what some people might tell you.
+However, empirically, it is very easy to forget a `volatile` type
+qualifier, which will cause the compiler to (sometimes!) silently remove
+reads or writes.  In this class we will *never* directly read or write
+device memory, instead we will call the procedures `get32` and `put32`
+to read and write addresses.  For example:
 
         put32(0x2020202, (1 << 20));
 
-which will call out to assemmbly code (`gcc` currently cannot optimize this)
-writes the given value of the second argument to the address specified
-by the first.
+`put32` will call out to assemmbly code (`gcc` currently cannot optimize
+this) writes the given value of the second argument to the address
+specified by the first.   In addition, by using `put32` and `get32`,
+it becomes trivial to record all the reads and writes that are done to
+device memory, and later use this for testing.  (You will use this in the
+next lab to sort-of prove that the code you write in this lab is correct.)
 
-Thus, how to read the document: 
-    1. Figure out which locations control which device actions.
+Generally, whenever you need to control a device, you'll do something like
+the following: 
+    0. Get the datasheet for the device (i.e., the oft poorly-written PDF that describes it).
+    1. Figure out which memory locations control which device actions.
     2. Figure out what magic values have to be written to cause the device to do something.
     3. Figure out when you read from them how to interpret the results.
 
-In general, there is often some kind of initialization, then a sequence
-of writes to kick the device down a set of actions, and some number of
-reads when we know data is (or could be) available.
-
+Devices typically require some kind of initialization, a sequence of
+writes to kick-start the device down a set of actions, and some number
+of reads when we know data is (or could be) available.
 
 In our case, we want to get the GPIO pin initialized to be an output pin 
 (to control and LED) or input 
@@ -85,13 +113,14 @@ In our case, we want to get the GPIO pin initialized to be an output pin
     2. Implement `gpio_write` to write the value of an output pin (LED).
     3. Implement `gpio_read` to read the value of an input pin (touch sensor).
 
-While a lot of this may sound complicated, and the Broadcom document is
-not particularly friendly, you will see that what is actually going on
-is pretty simple, there is just a bunch of jargon, and with a few lines of
-code you can start to control some pretty neat stuff.
+While a lot of this may sound complicated, and the Broadcom document
+is not particularly friendly, you will see that what is actually going
+on is pretty simple, there is just a bunch of jargon, a few loads or
+stores to weird addresses, and with a few lines of code you can start
+to control some pretty neat stuff.
 
 --------------------------------------------------------------------------
-### Part 1.  Make blink work.
+### Part 1.  Make blink work. (30 minutes)
 
 You'll implement the following routines in `gpio.c`:
    1. `gpio_set_output(pin)` which will set `pin` to an output pin.  This should 
@@ -101,7 +130,7 @@ You'll implement the following routines in `gpio.c`:
    4.  After doing so, wire up the LED pins to pin 20 and 21, power-cycle
        the pi, and use the bootloader to load the code:
 
-             % my-install kernel.img
+             % my-install blink.bin
 
 Hints:
    1. You write `GPFSELn` register (pages 91 and 92) to set up a pin as an
@@ -114,7 +143,6 @@ Hints:
    3. The different `GPFSELn` registers handle group of 10, so you 
 	  can divide the pin number to compute the right `GPFSEL` register.
 
-
    4. Be very careful to read the descriptions in the broadcom document to
       see when you are supposed to preserve old values or ignore them.
       If you don't ignore them when you should, you can write back
@@ -122,11 +150,10 @@ Hints:
       values when you should not, the code in this assignment may work,
       but later when you use other pins, your code will reset them.
  
-               // assume: we want to set the bits 7,8,9 in <x> to <v> and
+               // assume: we want to set the bits 7,8 in <x> to v and
                // leave everything else undisturbed.
-               
-               x &=  ~(0b111 << 7); // clear the bits 7, 8, 9  in x
-               x |= (v << 7);     // or in the new bits
+               x &=  ~(0b11 << 7);   // clear the bits 7, 8  in x
+               x |=   (v << 7);   // or in the new bits
                           
    5. You will be using this code later!   Make sure you test the code by 
 	  rewiring your pi to use pins in each group.
@@ -134,20 +161,20 @@ Hints:
 --------------------------------------------------------------------------
 ### Part 2.  Make the touch sensor work.
 
-Blinking the LED showed how to do output, you'll now write the code to set
-up a pin for input and use this code to read a capacitive touch sensor.
-At this point you have the tools to control a surprising number of
-digital devices you can guy on eBay or alibaba.
+Part 1 used GPIO for output, you'll extend your code to handle input and
+use this to read a capacitive touch sensor.  At this point you have the
+tools to control a surprising number of digital devices you can buy on
+eBay, adafruit, sparkfun, alibaba, etc.
 
-What to do:
-   1. Wire up the touch sensor and make sure the wiring works.
-   2. Implement `gpio_set_input(pin)' 
-   3. Compile the code in `part2-touch` and run the bootloader and see that everything
-      works.
+What you will do below:
+   1. Before you write any code: Wire up the touch sensor and make sure the wiring works.
+   2. Implement `gpio_set_input(pin)' in `part1-led/gpio.c`.
+   3. `cd` into `part2-touch`, compile the code (`make`) and use the bootloader to 
+      load it onto your pi and verify it works.
    4. Celebrate.
 
 ---------------------------------
-##### A. Get the hardware working.
+##### A. Get the hardware working. (10 minutes)
 
 We always try to test our hardware setup without software since doing so
 minimizes the places we need to debug if things do not work. A standard
@@ -157,14 +184,10 @@ combinations of things that could be causing problems.  Our approach
 of trying to do everything one-at-a-time, in the smallest step we can
 think of, dramatically reduces the IQ needed to figure out mistakes.
 
-
-NOTE: 
-
-  - ***If you haven't seen a breadboard before, make sure you read how it works***
-    If this is the first time you've used one in your life, the [sparkfun
-    tutorial](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard)
-    is a good, quick place to look.  Don't fry your pi.  If anything
-    gets hot, pull it out.
+Note, we are wiring up a bunch of stuff, so it'd be standard to use a breadboard
+(for a [tutorial](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard)).
+However to minimize confusion we will just use female-to-female jumper wires
+to connect everything.
 
 In our case, when the touch sensor is touched, it will produce voltage on its
 output pin.  We can check that it does so by just hardwiring this pin to an 
@@ -179,7 +202,7 @@ LED.
 
 
 ---------------------------------
-##### B. Write the code.
+##### B. Write the code (10 minutes)
 
 This should be fast:
   1. Implement `gpio_set_input` --- it should just be a few lines of code, which will
