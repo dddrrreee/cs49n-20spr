@@ -11,6 +11,8 @@
 # makefile based on scott mcpeak's grad school page :)
 # 	http://scottmcpeak.com/autodepend/autodepend.html
 
+CHECK_DIR=../../1-gpio/part1-led
+
 MK = make  --no-print-directory
 CC = gcc
 CFLAGS = -Wall -g -Og -std=gnu99  -Werror -Wno-unused-function
@@ -29,7 +31,7 @@ everything:
 ##############################################################################
 # put-get tests: do these first.
 
-test-put-get: test-put-get.o fake-put-get.o
+test-put-get: test-put-get.o fake-put-get.o rand.o
 	$(CC) $(CFLAGS) $^  -o $@ -lm
 
 
@@ -74,7 +76,7 @@ gpio-tests:
 	@$(MK) PART=3 test_gpio
 	@echo "Passed all gpio tests!";
 
-test-gpio: test-gpio.o fake-put-get.o ../blink/gpio.o
+test-gpio: test-gpio.o fake-put-get.o $(CHECK_DIR)/gpio.o
 	$(CC) $(CFLAGS) $^  -o $@ -lm
 
 # pull in dependency info for *existing* .o files
@@ -104,7 +106,7 @@ ctags:
 # remove compilation products
 clean:
 	rm -f $(NAME) *.o *.d Makefile.bak *~ *.bin tags out [0-3].out test-gpio test-put-get
-	make -C ../blink clean
+	make -C $(CHECK_DIR) clean
 
 cleanall:
 	make clean

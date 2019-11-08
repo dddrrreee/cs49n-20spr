@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../blink/gpio.h"
 #include "rpi.h"
 
 void run_test(const char *name, void (*fp)(unsigned), int ntrials) {
