@@ -6,6 +6,12 @@ TODO:
     - change so that they can do a fake one that will check their result.   should we have
       them implement this part?
 
+***Move this to the prelab?***
+#### Part 0: Restructuring your code into a library (libpi)
+
+*fill here*
+
+
 For this lab you're going to implement the sensor driver on your own
 for a simple a simple magnetic sensing device (a "hall effect" sensor).
 You'll then use a simple fake-pi implementation to cross-check your
@@ -105,7 +111,7 @@ The basic approach is simple:
    2. The only question: If your program calls a routine `foo`, what do we do?
 
 A few choices:
-   1. Nothing.  For example, we aaren't checking the `uart_init()` code, so our
+   1. Nothing.  For example, we aren't checking the `uart_init()` code, so our
       fake version simply prints out that it was called and returns.
 
    2. Call the underlying Unix code.  For example, for `printk` we simply call `printf`.  

@@ -45,6 +45,7 @@ much issue.
    2. Add an implementation and check for `gpio_set_input` and verify
    you get the same result as everyone else.
 
+***Will 0 still matter with the new gpio lab?***
 ----------------------------------------------------------------------
 #### 0. Separate out your GPIO code from `blink.c`
 
