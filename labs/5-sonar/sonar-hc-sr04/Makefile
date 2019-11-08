@@ -1,7 +1,7 @@
 # change this name to whatever your program is called
 NAME=sonar
 # add any additional .o's here
-OBJS = $(NAME).o
+OBJS = driver.o sonar-hc-sr04.o
 
 # check that your path is defined.
 ifndef CS49N_LIBPI_PATH
