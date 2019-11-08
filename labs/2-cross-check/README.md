@@ -26,62 +26,36 @@ After completing the lab you will:
 	`gpio` implementation by checking its equivalence against the
 	fairly complicated code used in the initial cs107e class.
 
-After this lab you can then most of the rest of the homework without too
-much issue.
+##### Pre-lab
 
-***Important***:
-   - I know some of you modified your blink code last time without doing a
-   `git pull` first.  This will lead to conflicts.  These can be resolved
-   and you should figure out how to do so.  However, since we only have
-   two hours,  in the interests of time, it may be more efficient to
-   instead do a clean checkout and copy your working code into this lab.
+Read through the code in the `code/` subdirectory:
+   1. `cross-check.c` contains the procedures that you will implement.
+   2. `test-put-get.c` has a simple test harness that will test the code you
+      will write.  Do not modify this code (at least until you finish the lab!)
+      but you should understand what it does.  What bugs will it find?  What
+      bugs will it miss?
+   3. `test-gpio.c` contains the simple test harness to check your
+      `gpio` implementations.
 
-#### Sign-off
+
+##### Sign-off
 
    1. Your `gpio_set_output`, `gpio_set_on`,
    `gpio_set_off` give the same result as other peoples.  You can
    run them in this order and just hash the end result.
 
-   2. Add an implementation and check for `gpio_set_input` and verify
-   you get the same result as everyone else.
-
-----------------------------------------------------------------------
-#### 0. Separate out your GPIO code from `blink.c`
-
-In order to make testing cleaner and for later labs, we need to pull your
-GPIO code out of `blink.c` into its own implementation file `gpio.c`.
-As a small bonus, doing so will get you more familiar with Makefiles
-and header files, which will help your whole career.
-
-Mechanically:
-
-  0. We are going to modify your Lab 0 code, so first copy the files in
-     `0-blink/blink3` directory into `1-cross-check/blink`.
-
-     My general suggestion: (almost never) update-in-place a working
-     implementation to add new functionality.  Instead, make a copy
-     (so you always have a working, internally consistent version) and
-     modify the copy instead.  Some people will rely on `git commits`
-     and rollbacks, but I have seen this go very awry.  (Intuition: It's
-     safer, simpler, more robust to have a separate working copy than
-     assume you can take a non-working copy and apply a set of verbs ---
-     e.g., `git` rollbacks --- to get to something working.)
-
-  1. Write a header file `gpio.h` with the `gpio` prototypes needed
-     by `blink.c`
-
-  2. Put all `gpio` function implementations  in a file `gpio.c` and 
-     remove them from `blink.c`.
-
-  3. Alter your `Makefile` to compile and link the new file together.
-
-  4. ***IMPORTANT***: rerun your blink to make sure it still works!
-
 ----------------------------------------------------------------------
 #### 1. Make a fake implementation of `put32` and `get32`
 
 In order to make testing easy, we want to be able to run your r/pi code ---
-unaltered --- on your Unix laptop.  What do you need to do so?  
+unaltered --- on your Unix laptop.  This might seem implausible, since the
+code was written to run on the r/pi.   However, if as you look at the code,
+most of it is C code, which will run the same on the r/pi and your laptop.
+The main pi-specific stuff is (1) the addresses we read and write and (2) the
+assembly code.   We will be testing the gpio-implementations in isolation,
+so the assembly is not relevant.   That leaves the addresses.   
+
+What do you need to do so?  
 
   1. Compile it for Unix.   Fortunately, because of the way we wrote `
      gpio.c` you can easily compile it both for RPI and to run on your
@@ -95,9 +69,9 @@ unaltered --- on your Unix laptop.  What do you need to do so?
      happens when your code writes to GPIO memory.
 
 First steps:
-  0. Do a pull if you haven't already. 
-  1. Look in `fake-put-get.c` and read the comments.  You will implement
+  1. From the pre-lab: Look in `fake-put-get.c` and read the comments.  You will implement
      `put32` and `get32`.
+
   2. Before you start, run `make` and make sure everything compiles.
      Note: the code will use your `gpio.h` and `gpio.c` from Part 0 so
      if you get compile errors it's probably because you have stuff in the 
@@ -151,14 +125,3 @@ For this section:
  2. You can test each function individually by running `test-gpio 0`,
        `test-gpio 1`, etc.  (Look in the `test-gpio.c` file.)
  3. Again compare the results to your partner and post to the newsgroup.
-
-----------------------------------------------------------------------
-#### 4. Add `gpio_set_input` and cross-check it.
-
-You'll see we can write an implementation even without having a way to run it.
-   1.  Implement the `gpio_set_input` function: add it to `gpio.c` and its prototype 
-   to `gpio.h`.
-   2. Add a test to the test harness.
-   3. Make it so that `test-gpio 4` runs it in isolation and `test-gpio 5` runs
-      all tests.
-   4. Cross-check your results.
