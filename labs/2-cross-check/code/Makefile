@@ -76,7 +76,7 @@ gpio-tests:
 	@$(MK) PART=3 test_gpio
 	@echo "Passed all gpio tests!";
 
-test-gpio: test-gpio.o fake-put-get.o $(CHECK_DIR)/gpio.o
+test-gpio: test-gpio.o fake-put-get.o $(CHECK_DIR)/gpio.o rand.o
 	$(CC) $(CFLAGS) $^  -o $@ -lm
 
 # pull in dependency info for *existing* .o files

@@ -41,11 +41,9 @@ static void harder_test(void) {
 }
 
 int main(void) {
-#if 0
-    srandom(49);
     // make sure that everyone has the same random.
-    assert(89789692 == random());
-#endif
+    assert(22128 == random());
+
 
     simple_test();
     harder_test();
