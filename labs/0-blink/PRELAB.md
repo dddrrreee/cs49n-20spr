@@ -13,7 +13,7 @@ As mentioned in the README, this lab will focus on getting you comfortable with 
 
 ### Review Exercises
 
-Most labs will have pre-lab review exercises to prepare you for the lab. If you read the readme and research what you don't understand, they shouldn't be hard to answer.
+Most labs will have pre-lab review exercises to prepare you for the lab. If you read the readme and research what you don't understand, they shouldn't be hard to answer. Lab 0 will involve very little code, so the questions are more checkpoints for the readme.
 
 #### Git
 

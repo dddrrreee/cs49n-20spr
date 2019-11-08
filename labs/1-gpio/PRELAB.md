@@ -13,7 +13,18 @@ A register is a block of memory (often 32 bits long). In the R/Pi, there are qui
 
   3. You will use your GPIO functions to make an LED respond to a touch sensor!
 
+### Library functions
+
+We've written two functions to write/read the memory addresses you will be manipulating for GPIO. We highly recommend looking at the prototypes for each one to confirm you understand what it does.
+
+          put32(*addr, v) sets the 32 bits starting at *addr to v (unsigned).
+          get32(*addr) returns the 32 bits starting at *addr.
+          nop() does nothing, can be used for delays
+          delay(ticks) delays the r/pi for an amount of time corresponding to ticks
+
 ### Review Exercises
+
+The review exercises for Lab 1 center around reading/writing binary values into memory. If this takes you more than a few minutes, consult the CS107e background page at (https://cs107e.github.io/guides/numbers/). If this is new material and it seems a little daunting, know that everyone will need a refresher on these skills and successfully using them will carry you through this course.
 
 #### Binary Translations!
 
@@ -31,8 +42,17 @@ A register is a block of memory (often 32 bits long). In the R/Pi, there are qui
 
 6) What is (01111001 & ~(111 << 4)) | (1 << 5)?
 
+#### Shifting Pointers
+
+7) If we have an `*unsigned x` (4 bytes long) such that `x = (void*)0x4`, what memory address does `x+2` point to?
+
+Note: this is effectively the following code:
+
+          unsigned *x = (void*)0x4;
+          x+2 # equals what?
+
 #### Broadcom document
 
-7) You've been asked to read pgs. 90-96 of the broadcom document, which describes several memory registers. What is the address of the register(s) we will use to change a pin to output or input (say, for pin 5)?
+8) You've been asked to read pgs. 90-96 of the broadcom document, which describes several memory registers. What is the address of the register(s) we will use to change a pin to output or input (say, for pin 5)?
 
-8) What about the address for checking the input level of a pin?
+9) What about the address for checking the input level of a pin?
