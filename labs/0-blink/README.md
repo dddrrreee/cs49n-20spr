@@ -174,7 +174,7 @@ Mechanically:
      switch them?  (Hint: Think about the semantics of TX (transmit)
      and RX (receive).)
   3. Copy `bin/pi-install.linux` or `bin/pi-install.macos` to your
-     local `bin/pi-install`.  Make sure when you type 'pi-install'
+     local `bin/pi-install`.  Make sure when you type `pi-install`
      something happens!  If not, make sure your local `bin/` directory
      is in your path, and that you have sourced your shell startup file.
   4. Run `pi-install part1/blink-pin20.bin`
@@ -186,7 +186,7 @@ Your LED should be blinking.
 
 For this class you need to compile bare-metal r/pi programs on your
 computer, which is most likely not a bare-metal r/pi itself.  Thus we
-need to set up the tools needed to ``cross-compile'' r/pi programs on
+need to set up the tools needed to `cross-compile` r/pi programs on
 your computer and to r/pi binaries.
 
 Install the toolchain:
@@ -203,10 +203,9 @@ Install the toolchain:
 
            sudo apt-get install libnewlib-arm-none-eabi
 
-
 Compile `part2/blink-pin20.s` using the shell script.
 
-   1. `cd part2`.   Run `sh make.sh`.
+   1. `cd part2`.   Run `sh make.sh`. We will use `make` frequently in the future to compile our code before sending if off to the pi. If you don't know what `make` does, or how a `Makefile` works, see the [CS107E Guide to Make](http://cs107e.github.io/guides/make/).
    2. reset your pi: unplug the TTY-USB then plug it back in to your laptop.
    3.  `pi-install part2/blink-pin20.bin`.   Should blink.  If
 	not isolate the problem by trying the blink-pin20.bin in `part1/`,
