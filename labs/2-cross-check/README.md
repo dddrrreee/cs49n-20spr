@@ -44,6 +44,9 @@ Read through the code in the `code/` subdirectory:
    `gpio_set_off` give the same result as other peoples.  You can
    run them in this order and just hash the end result.
 
+   2. Add an implementation and check for `gpio_set_input` and verify
+   you get the same result as everyone else.
+
 ----------------------------------------------------------------------
 #### 1. Make a fake implementation of `put32` and `get32`
 

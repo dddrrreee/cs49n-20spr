@@ -1,12 +1,5 @@
 # The labs
 
-The labs are organized as four different chunks containing four related
-labs.  Each lab will result in a new thing.  Each chunk will synthesize
-these pieces together into a unified result.
-
-------------------------------------------------------------------
-### Devices (4 labs)
-
 This chunk of the class involes you writing a few simple low-level
 devices and using modern techniques to check them.  Some of these labs
 are quick (< 60 minutes), some are longer.
@@ -30,11 +23,6 @@ are quick (< 60 minutes), some are longer.
      mistake makes more a miserable quarter.  Thus, we show you modern
      tricks for ensuring your code is correct.
 
-  2. [hello](2-hello/): As you've noticed, debugging without even having
-     `printf` is a hassle   Before we do a bunch of devices, we first
-     get `printf` working by writing a couple GPIO functions and then
-     putting then `libpi`.
-
   3. [hall](3-hall-effect/):  for this lab you'll bang out your first
      device: a hall-effect sensor that detects proximity of a magnet.
      We work directly off of the data sheets, so you get practice
@@ -44,6 +32,13 @@ are quick (< 60 minutes), some are longer.
   4. [sonar](4-sonar/): for this lab you'll write a more complicated
      driver to measure distance using sonar.  Again, we'll work directly
      from a datasheet.
+
+These are not done yet:
+
+  2. [hello](2-hello/): As you've noticed, debugging without even having
+     `printf` is a hassle   Before we do a bunch of devices, we first
+     get `printf` working by writing a couple GPIO functions and then
+     putting then `libpi`.
 
 
   5. [ir](5-ir/): we use a simple IR device to reverse engineer a remote

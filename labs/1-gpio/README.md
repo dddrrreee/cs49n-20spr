@@ -132,6 +132,8 @@ You'll implement the following routines in `gpio.c`:
 
              % my-install blink.bin
 
+       Don't forget to make `blink.c` into binary!
+
 Hints:
    1. You write `GPFSELn` register (pages 91 and 92) to set up a pin as an
       output or input. You'll have to set GPIO 20 in GPFSEL2 to output.
@@ -168,7 +170,7 @@ eBay, adafruit, sparkfun, alibaba, etc.
 
 What you will do below:
    1. Before you write any code: Wire up the touch sensor and make sure the wiring works.
-   2. Implement `gpio_set_input(pin)' in `part1-led/gpio.c`.
+   2. Implement `gpio_set_input(pin)` and `gpio_read(pin)` in `part1-led/gpio.c`.
    3. `cd` into `part2-touch`, compile the code (`make`) and use the bootloader to 
       load it onto your pi and verify it works.
    4. Celebrate.
