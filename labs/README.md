@@ -4,6 +4,11 @@ This chunk of the class involes you writing a few simple low-level
 devices and using modern techniques to check them.  Some of these labs
 are quick (< 60 minutes), some are longer.
 
+#### Laying the groundwork:
+
+  The first few labs are intended to help get everyone on the same page and set up the
+  development cycle you will all you over the course of the quarter.
+
   0. [blink](0-blink/): get everyone up to speed and all necessary
      software installed.  By the end you'll be able to compile the code
      for the pi and blink a light.
@@ -28,6 +33,7 @@ are quick (< 60 minutes), some are longer.
      get `printf` working by writing a couple GPIO functions and then
      putting then `libpi`.
 
+#### Basic devices:
 
   4. [hall](4-hall-effect/):  for this lab you'll bang out your first
      device: a hall-effect sensor that detects proximity of a magnet.
@@ -41,6 +47,7 @@ are quick (< 60 minutes), some are longer.
 
 These are not done yet:
 
+  6. [lightstrip](6-ws2812b/): do the neopixel as part of basic devices?
 
   5. [ir](5-ir/): we use a simple IR device to reverse engineer a remote
      control protocol.    We then transmit this using an IR emitting LED
