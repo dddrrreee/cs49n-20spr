@@ -13,6 +13,6 @@ Up until this point, we've built code that blinks an LED with our GPIO functions
 
 ### Review Exercises
 
-You may have to do some google searching to find the answers to the prelab exercise for this week, but despair not! This is probably the most circuit-ey the class will get, and knowing how to find a good instructional youtube video is a helpful sill.
+You may have to do some google searching to find the answers to the prelab exercise for this week, but despair not! This is probably the most circuit-ey the class will get, and knowing how to find a good instructional youtube video is a helpful skill.
 
 1) For GPIO pins, what is a pulldown/pullup? What does "setting" a pin as pulldown or pullup achieve? If you don't know, do some research online - as mentioned before, a lot of this class is driven by you and your ability to figure out how to use stuff based off of online data sheets.
