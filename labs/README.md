@@ -23,22 +23,23 @@ are quick (< 60 minutes), some are longer.
      mistake makes more a miserable quarter.  Thus, we show you modern
      tricks for ensuring your code is correct.
 
-  3. [hall](3-hall-effect/):  for this lab you'll bang out your first
+  3. [hello](3-hello/): As you've noticed, debugging without even having
+     `printf` is a hassle   Before we do a bunch of devices, we first
+     get `printf` working by writing a couple GPIO functions and then
+     putting then `libpi`.
+
+
+  4. [hall](4-hall-effect/):  for this lab you'll bang out your first
      device: a hall-effect sensor that detects proximity of a magnet.
      We work directly off of the data sheets, so you get practice
      deciphering these.    They will be confusing.  This is expected.
      You will cross check your code against everyone else.
 
-  4. [sonar](4-sonar/): for this lab you'll write a more complicated
+  5. [sonar](5-sonar/): for this lab you'll write a more complicated
      driver to measure distance using sonar.  Again, we'll work directly
      from a datasheet.
 
 These are not done yet:
-
-  2. [hello](2-hello/): As you've noticed, debugging without even having
-     `printf` is a hassle   Before we do a bunch of devices, we first
-     get `printf` working by writing a couple GPIO functions and then
-     putting then `libpi`.
 
 
   5. [ir](5-ir/): we use a simple IR device to reverse engineer a remote
