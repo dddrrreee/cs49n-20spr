@@ -1,6 +1,5 @@
 ## Lab: write your own code to control the r/pi; throw ours out.
 
-
 The first lab was just setup.  Today we get to the fun part: you'll 
 use the Broadcom document (`../../docs/BCM2835-ARM-Peripherals.annot.PDF`)
 to figure out how to write the code to turn the GPIO pins on/off yourself
