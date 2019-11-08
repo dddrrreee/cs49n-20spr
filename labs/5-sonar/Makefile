@@ -2,10 +2,10 @@ all: build
 
 
 build:
-	make -C sonar-hc-sr04
+	make -C code
 
 clean:
 	rm -f *~ *.bak
-	make -C sonar-hc-sr04 clean
+	make -C code clean
 
 .PHONY: build clean
