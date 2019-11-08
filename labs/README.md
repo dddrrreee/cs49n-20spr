@@ -45,11 +45,28 @@ are quick (< 60 minutes), some are longer.
      driver to measure distance using sonar.  Again, we'll work directly
      from a datasheet.
 
-These are not done yet:
+#### Less basic devices [***NOT DONE***]
 
-  6. [lightstrip](6-ws2812b/): do the neopixel as part of basic devices?
+  6. [ADC](7-adc/): many cheap devices are analog --- they communicate
+     information by varying an output between 0 and some maximum voltage.
+     Since pi GPIO pins only state that whether an input voltage is 0
+     or 3.3v (read as a 1), we cannot connect analog devices directly.
+     This lab shows how to use a cheap analog-to-digital (ADC) to convert
+     these analog values to ones the pi can read.
 
-  5. [ir](5-ir/): we use a simple IR device to reverse engineer a remote
+  7. [lightstrip](6-ws2812b/): do the neopixel as part of basic devices?
+     Have them make an equivalizer?
+
+  8. [i2c](5-ir/): we use a simple IR device to reverse engineer a remote
      control protocol.    We then transmit this using an IR emitting LED
      and verify that it is accurate.  As usual, you cross check your code
      against everyone elses.
+ 
+  9. [esp8622](8-esp): we show how to use an ESP8622 to communicate
+     between r/pi's.
+
+#### Synthesis [***NOT DONE***]
+  - combine the ADC+mic+lightstrip into an equalizer.
+  - combine the accel+lightstrip+esp into a remote wearable display.
+  - use virtualization to convert the esp to a remote setup where r/pi code runs on 
+    laptop and it sends commands to a remote set of pi's.  probably use a UDP server.
