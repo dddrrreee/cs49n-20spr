@@ -1,17 +1,5 @@
 ### Detecting magnet contact with a hall effect sensor
 	
-TODO:
-    - prelab
-    - add so that they copy into libpi and change the makefil so that it will work.
-    - change so that they can do a fake one that will check their result.   should we have
-      them implement this part?
-
-***Move this to the prelab?***
-#### Part 0: Restructuring your code into a library (libpi)
-
-*fill here*
-
-
 For this lab you're going to implement the sensor driver on your own
 for a simple a simple magnetic sensing device (a "hall effect" sensor).
 You'll then use a simple fake-pi implementation to cross-check your

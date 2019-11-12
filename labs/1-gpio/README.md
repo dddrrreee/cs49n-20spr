@@ -27,6 +27,10 @@ touched.
      you'll be filling this in as well as the two simple programs `touch.c` and `blink.c`
      which will call into your code.  (You won't modify these two latter files.)
 
+<table><tr><td>
+  <img src="images/deconstructed_lab1.png">
+</td></tr></table>
+
 Sign off: to get credit for the lab show the following:
 
    1. That [part1-blink](https://github.com/dddrrreee/cs49n-20spr/tree/master/labs/1-gpio/part1-blink) blinks two LEDs on pin 20 and 21 in opposite orders (i.e., if 20 is on, 21 should be off and vice versa).  (This will point out a subtle mistake people make reading the docs).
@@ -120,10 +124,6 @@ to control some pretty neat stuff.
 
 --------------------------------------------------------------------------
 ### Part 1.  Make blink work. (30 minutes)
-
-<table><tr><td>
-  <img src="images/deconstructed_lab1.png">
-</td></tr></table>
 
 You'll implement the following routines in `gpio.c`:
    1. `gpio_set_output(pin)` which will set `pin` to an output pin.  This should 

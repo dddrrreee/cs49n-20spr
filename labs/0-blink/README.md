@@ -211,3 +211,7 @@ Compile `part2/blink-pin20.s` using the shell script.
 	not isolate the problem by trying the blink-pin20.bin in `part1/`,
 	your lab partner's, etc.
 
+If it blinks, you've successfully worked your way down our development
+toolchain! For future labs, we will be writing our own C code, compiling
+it with `make`, and then sending it to the pi with `pi-install`. Isn't that
+so much nicer than loading it on the SD card every time?

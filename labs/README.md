@@ -29,7 +29,7 @@ are quick (< 60 minutes), some are longer.
      tricks for ensuring your code is correct.
 
   3. [hello](3-hello/): As you've noticed, debugging without even having
-     `printf` is a hassle   Before we do a bunch of devices, we first
+     `printf` is a hassle.  Before we do a bunch of devices, we first
      get `printf` working by writing a couple GPIO functions and then
      putting then `libpi`.
 
@@ -52,10 +52,15 @@ are quick (< 60 minutes), some are longer.
      Since pi GPIO pins only state that whether an input voltage is 0
      or 3.3v (read as a 1), we cannot connect analog devices directly.
      This lab shows how to use a cheap analog-to-digital (ADC) to convert
-     these analog values to ones the pi can read.
+     these analog values to ones the pi can read. We'll be using it to connect to
+     a microphone and a basic temperature sensor.
 
-  7. [lightstrip](6-ws2812b/): do the neopixel as part of basic devices?
-     Have them make an equivalizer?
+  7. [lightstrip](6-ws2812b/): having worked with LEDs, now we'll start
+     moving to something a little more complicated. You'll write a driver
+     to control individual pixels on a lightstrip, allowing you to make
+     cool visual displays and laying the groundwork for future projects.
+     We'll be working off a datasheet again, and timing is really important
+     for this one.
 
   8. [esp8622](8-esp): we show how to use an ESP8622 to communicate
      between r/pi's.
