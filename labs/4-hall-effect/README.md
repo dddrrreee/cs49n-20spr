@@ -64,6 +64,10 @@ make sure it stays there.  If it's high you need a "pullup" resistor
 (`gpio_set_pulldown(pin)` or `gpio_set_pullup(pin)`).  You call these
 after configuring for input or output.
 
+<table><tr><td>
+  <img src="images/deconstructed_lab4.jpg">
+</td></tr></table>
+
 Now, we write the code.
    1. Write the code to configure the GPIO pins.
    2. If you didn't already, implement your `gpio_read` function to read the value

@@ -121,6 +121,10 @@ to control some pretty neat stuff.
 --------------------------------------------------------------------------
 ### Part 1.  Make blink work. (30 minutes)
 
+<table><tr><td>
+  <img src="images/deconstructed_lab1.png">
+</td></tr></table>
+
 You'll implement the following routines in `gpio.c`:
    1. `gpio_set_output(pin)` which will set `pin` to an output pin.  This should 
        take only a few lines of code.

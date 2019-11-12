@@ -42,6 +42,10 @@ Extension:
 ----------------------------------------------------------------------
 ### Implementing the HC-SR04 sonar driver.
 
+<table><tr><td>
+  <img src="images/deconstructed_lab5.jpg">
+</td></tr></table>
+
 First, get the datasheet.  The first one is a 3-page sheet that isn't
 super helpful (common); there's a longer one if you keep digging.
 Also, the sparkfun comments for the device have useful factoids (but
